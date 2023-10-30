@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Navbar, Nav } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function NavLink({ href, name }) {
   const router = useRouter();
   const nameFromRoute = href
-    .replace(/^\//, "")
+    .replace(/^\//, "") // Remove leading slash if it exists
     .replace(/-/g, " ")
     .toUpperCase();
   return (
@@ -23,8 +24,8 @@ function NavLink({ href, name }) {
 function SantaNav() {
   return (
     <div className="santa-nav-background">
-      <Navbar expand="lg" className="santa-nav" >
-        <Link className="mr-auto" href="/" passHref>
+      <Navbar expand="lg" className="santa-nav">
+        <Link href="/" passHref> {/* Ensure you use Link here */}
           <Navbar.Brand>
             <img src="/sv-logo.png" alt="Santa's Volunteers" width="150px" />
           </Navbar.Brand>

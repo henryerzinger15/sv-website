@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Row, Col, Button, Form, InputGroup } from "react-bootstrap";
+import { Row, Col, Button, Form } from "react-bootstrap";
+import InputGroup from 'react-bootstrap/InputGroup'
 import Layout from "../components/layout";
 
 const donationMapping = {

@@ -1,5 +1,6 @@
-import Layout from "../components/layout";
-import { Form, Row, Col, Button } from "react-bootstrap";
+import React from 'react';
+import Layout from '../components/layout'; // Import the Layout component correctly
+import { Form, Row, Col, Button } from 'react-bootstrap';
 
 function ContactUs() {
   return (
