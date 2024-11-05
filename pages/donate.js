@@ -76,7 +76,9 @@ function Donate() {
             action="https://www.paypal.com/cgi-bin/webscr"
             method="post"
             style={{ marginTop: 12 }}
+            data-netlify="true"
           >
+            <input type="hidden" name="form-name" value="donate" />
             <input type="hidden" name="business" value="santavp@yahoo.com" />
             <input type="hidden" name="cmd" value="_donations" />
             <input type="hidden" name="charset" value="utf-8" />
