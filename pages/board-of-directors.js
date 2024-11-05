@@ -7,15 +7,15 @@ function CorporateSponsors() {
         <h1>Board of Directors</h1>
 
         <p style={{ textAlign: "center", marginBottom: "60px" }}>
-          John Churchill, <strong>President</strong>
+        Michael Foster, <strong>President</strong>
           <br />
-          Julie Westerman, <strong>Vice President</strong>
+          Jenny Haljun, <strong>Vice President</strong>
           <br />
-          David Sargent, <strong>Vice President</strong>
+          Mike Purcell, <strong>Vice President</strong>
           <br />
           Michael Foster, <strong>Treasurer</strong>
           <br />
-          Maggie Erzinger Stewart, <strong>Secretary</strong>
+          Emily Ward, <strong>Secretary</strong>
         </p>
 
         <div className="four-column-directors">
@@ -29,70 +29,81 @@ function CorporateSponsors() {
               <br />
               Rich Brendza
               <br />
+              Evan Churchill
+              <br />
+              John Churchill
+              <br />
+              Luke Churchill
+              <br />
+              Sydney Churchill
+              <br />
               Swope Clarke
               <br />
-              Dave DeLach
+              Emily Denhart
+              <br />
+              Dave DeLach 
               <br />
               Rick Delisle
-              <br />
-              Robert B. Douglas
-              <br />
-              Tom Erdmier
-              <br />
-              Christian H. Erzinger
-              <br />
-              Henry Erzinger
-              <br />
-              Denise Fedewa
-              <br />
-              Mark Fellinger
             </p>
           </div>
 
           <div className="director-column">
             <p>
+              Robert Douglas 
+            <br />
+            Tom Erdmier 
+              <br />
+              Christian Erzinger Henry
+              <br />
+              Erzinger
+              <br />
+              Mark Fellinger 
+              <br />
               Paul Fellinger
               <br />
               Eve Finzer
               <br />
               Liza Finzer
               <br />
-              Alan M. Graham
+              Erin Foster
+              <br />
+              Louis Garavaglia
+              <br />
+              Alan Graham 
               <br />
               Michael Grasso
               <br />
-              <br />
-              <br />
-              Jenny Haljun
-              <br />
-              William R. Haljun
-              <br />
-              Jay Hines
-              <br />
-              Kevin Hmelyar
-              <br />
-              Bill Hopkins
+              Ellen Gullickson
             </p>
           </div>
 
           <div className="director-column">
             <p>
+            William Haljun 
+              <br />
+              Jay Hines
+              <br />
+              Kevin Hmelyar
+              <br />
+              Bill Hopkins 
+              <br />
               Dave Knop
               <br />
-              Sandy Kolkey
+              Sandy Kolkey 
               <br />
-              <br />
-              William L. Lederer
-              <br />
-              Kevin R. Marschall
+              William Lederer 
               <br />
               Gary Martin
               <br />
-              Sara McGee
+              Cally McGee
               <br />
-              Paul M. McNicholas
+              Sara McGee 
               <br />
-              Charley Porter
+              Cory Nevins
+              <br />
+              Charles Porter
+              <br />
+              Chris Porter
             </p>
           </div>
 
@@ -100,21 +111,23 @@ function CorporateSponsors() {
             <p>
               Marshall W. Reavis IV
               <br />
+              Dave Sargent
+              <br />
+              Jake Smith
+              <br />
               Alex Stewart
               <br />
-              Dave Thomas
+              Maggie Stewart
               <br />
-              Emily Ward
+              Dave Thomas 
+              <br />
+              Mike Tracy
+              <br />
+              Julie Westerman
               <br />
               David Westerman
               <br />
               Sean Witty
-              <br />
-              Evan Hunter
-              <br />
-              Mike Purcell
-              <br />
-              Steven Keller
               <br />
             </p>
           </div>

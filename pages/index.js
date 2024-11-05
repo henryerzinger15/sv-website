@@ -25,8 +25,8 @@ function Home() {
             and stuffed animals to hand out.
           </p>
         </div>
-        <div id="home-right">
-          <img src="/Santas-Helpers-85-2x.png" />
+        <div id="home-right" className="d-flex flex-nowrap align-items-center">
+          <img src="/homepageBannerImage.jpg" />
         </div>
       </div>
     </Layout>

@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Row, Col, Button, Form } from "react-bootstrap";
 import InputGroup from 'react-bootstrap/InputGroup'
 import Layout from "../components/layout";
+import dynamic from "next/dynamic";
+const InputGroupPrepend = dynamic(() => import('react-bootstrap/InputGroup').then(mod => mod.Prepend), { ssr: false });
+const InputGroupText = dynamic(() => import('react-bootstrap/InputGroup').then(mod => mod.Text), { ssr: false });
 
 const donationMapping = {
   50: "Groceries for an entire family",
@@ -116,11 +119,11 @@ function Donate() {
             <Row style={{ margin: 0, paddingTop: "40px" }}>
               <Col className="custom-input-field">
                 <InputGroup className="mb-3">
-                  <InputGroup.Prepend>
-                    <InputGroup.Text style={{ fontSize: "15px" }}>
+                  <InputGroupPrepend>
+                    <InputGroupText style={{ fontSize: "15px" }}>
                       $
-                    </InputGroup.Text>
-                  </InputGroup.Prepend>
+                    </InputGroupText>
+                  </InputGroupPrepend>
                   <Form.Control
                     style={{ fontSize: "15px", marginRight: "10px" }}
                     type="number"

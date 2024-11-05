@@ -10,7 +10,7 @@ function NavLink({ href, name }) {
     .replace(/-/g, " ")
     .toUpperCase();
   return (
-    <Link href={href} passHref>
+    <Link href={href} passHref legacyBehavior>
       <Nav.Link
         style={{ paddingLeft: 13, paddingRight: 13, letterSpacing: "0.25px" }}
         active={href === router.pathname}
