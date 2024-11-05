@@ -11,9 +11,7 @@ function ContactUs() {
           className="form-container"
           name="contact-us"
           method="POST"
-          data-netlify="true"
         >
-          <input type="hidden" name="form-name" value="contact-us" />
           <Row>
             <Col>
               <Form.Control type="text" name="name" placeholder="Name" />
