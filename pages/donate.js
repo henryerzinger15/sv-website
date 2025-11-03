@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Row, Col, Button, Form } from "react-bootstrap";
-import InputGroup from 'react-bootstrap/InputGroup'
+import InputGroup from 'react-bootstrap/InputGroup';
 import Layout from "../components/layout";
 import dynamic from "next/dynamic";
 const InputGroupPrepend = dynamic(() => import('react-bootstrap/InputGroup').then(mod => mod.Prepend), { ssr: false });
@@ -26,6 +26,40 @@ const AmountButton = ({ value, active, onClick }) => (
     {donationMapping[value]}
   </Button>
 );
+
+// --- Helper functions (defined once, outside the component) ---
+
+function isMobile() {
+  return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+}
+
+function openVenmo({ username, amount = 0, note = "" }) {
+  // On mobile, omit the note to avoid + space issues
+  const noteParam = isMobile() ? "" : `&note=${encodeURIComponent(note)}`;
+  const url = `https://venmo.com/${username}?txn=pay&amount=${amount}${noteParam}`;
+  window.open(url, "_blank");
+}
+
+// --- DonateButton component ---
+
+function DonateButton({ donationValue, director }) {
+  return (
+    <Button
+      className="primary btn-block custom-solid-button"
+      onClick={() => {
+        openVenmo({
+          username: "santasvolunteers",
+          amount: donationValue || 0,
+          note: `Donation via website - Director: ${director || "N/A"}`
+        });
+      }}
+    >
+      Donate with Venmo
+    </Button>
+  );
+}
+
+// --- Main Donate page ---
 
 function Donate() {
   const [donationValue, setDonationValue] = useState(0);
@@ -70,6 +104,7 @@ function Donate() {
             </b>
           </p>
         </div>
+
         <div id="home-right">
           <h3>Select One or Enter Custom Amount</h3>
           <Form
@@ -84,8 +119,7 @@ function Donate() {
             <input
               type="hidden"
               name="item_name"
-              value={`${donationMapping[donationValue] || "Custom Amount"
-                } - Director: ${director ? director : "N/A"}`}
+              value={`${donationMapping[donationValue] || "Custom Amount"} - Director: ${director ? director : "N/A"}`}
             />
             <Row style={{ margin: 0 }}>
               <AmountButton
@@ -127,9 +161,7 @@ function Donate() {
                     style={{ fontSize: "15px", marginRight: "10px" }}
                     type="number"
                     placeholder="Custom Amount"
-                    onChange={(event) => {
-                      setDonationValue(event.target.valueAsNumber);
-                    }}
+                    onChange={(event) => setDonationValue(event.target.valueAsNumber)}
                   />
                 </InputGroup>
               </Col>
@@ -137,9 +169,7 @@ function Donate() {
                 <Form.Control
                   style={{ fontSize: "15px", marginLeft: "10px" }}
                   placeholder="Director"
-                  onChange={(event) => {
-                    setDirector(event.target.value);
-                  }}
+                  onChange={(event) => setDirector(event.target.value)}
                 />
               </Col>
             </Row>
@@ -160,88 +190,15 @@ function Donate() {
             </Row>
           </Form>
 
-
           {/* Venmo button */}
           <Row style={{ margin: "20px 0 0 0" }}>
-            <Button
-              className="primary btn-block custom-solid-button"
-              onClick={() => {
-                const baseUrl = "https://venmo.com/santasvolunteers";
-                const amount = donationValue || 0;
-                const note = `Donation via website - Director: ${director || "N/A"}`;
-
-                // Encode the note properly
-                let encodedNote = encodeURIComponent(note);
-                encodedNote = encodedNote.replace(/\+/g, "%20"); // ensure spaces are %20
-
-                const url = `${baseUrl}?txn=pay&amount=${amount}&note=${encodedNote}`;
-
-                window.open(url, "_blank");
-              }}
-            >
-              Donate with Venmo
-            </Button>
-
+            <DonateButton donationValue={donationValue} director={director} />
           </Row>
-
 
         </div>
       </div>
     </Layout>
   );
 }
-
-// --- Helper functions (defined once, outside the component) ---
-
-// Detect mobile devices
-function isMobile() {
-  return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-}
-
-// Generate Venmo URL for web
-function createVenmoUrl({ username, amount = 0, note = "" }) {
-  const encodedNote = encodeURIComponent(note); // single encoding
-  return `https://venmo.com/${username}?txn=pay&amount=${amount}&note=${encodedNote}`;
-}
-
-
-// Open Venmo link properly depending on device
-function openVenmo({ username, amount = 0, note = "" }) {
-  // Mobile deep link (Venmo app)
-  const appUrl = `venmo://paycharge?txn=pay&recipients=${username}&amount=${amount}&note=${note}`;
-
-  if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-    // Try to open Venmo app
-    window.location.href = appUrl;
-
-    // Optional fallback to web if app not installed
-    setTimeout(() => {
-      window.open(`https://venmo.com/${username}?txn=pay&amount=${amount}&note=${note}`, "_blank");
-    }, 500);
-  } else {
-    // Desktop: open web URL
-    window.open(`https://venmo.com/${username}?txn=pay&amount=${amount}&note=${note}`, "_blank");
-  }
-}
-
-
-// --- Component/Button ---
-function DonateButton({ donationValue, director }) {
-  return (
-    <Button
-      className="primary btn-block custom-solid-button"
-      onClick={() => {
-        openVenmo({
-          username: "santasvolunteers",
-          amount: donationValue || 0,
-          note: `Donation via website - Director: ${director || "N/A"}`
-        });
-      }}
-    >
-      Donate with Venmo
-    </Button>
-  );
-}
-
 
 export default Donate;
