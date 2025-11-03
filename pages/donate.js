@@ -84,9 +84,8 @@ function Donate() {
             <input
               type="hidden"
               name="item_name"
-              value={`${
-                donationMapping[donationValue] || "Custom Amount"
-              } - Director: ${director ? director : "N/A"}`}
+              value={`${donationMapping[donationValue] || "Custom Amount"
+                } - Director: ${director ? director : "N/A"}`}
             />
             <Row style={{ margin: 0 }}>
               <AmountButton
@@ -162,23 +161,25 @@ function Donate() {
           </Form>
 
 
-{/* Venmo button */}
-<Row style={{ margin: "20px 0 0 0" }}>
-  <Button
-    className="primary btn-block custom-solid-button"
-    onClick={() => {
-      const baseUrl = "https://venmo.com/santasvolunteers"; // your username, no @
-      const params = new URLSearchParams({
-        txn: "pay",
-        amount: donationValue || 0,
-        note: `Donation via website - Director: ${director || "N/A"}`
-      });
-      window.open(`${baseUrl}?${params.toString()}`, "_blank");
-    }}
-  >
-    Donate with Venmo
-  </Button>
-</Row>
+          {/* Venmo button */}
+          <Row style={{ margin: "20px 0 0 0" }}>
+            <Button
+              className="primary btn-block custom-solid-button"
+              onClick={() => {
+                const baseUrl = "https://venmo.com/santasvolunteers"; // your username, no @
+                const params = new URLSearchParams();
+                params.set("txn", "pay");
+                params.set("amount", donationValue || 0);
+                params.set(
+                  "note",
+                  encodeURIComponent(`Donation via website - Director: ${director || "N/A"}`)
+                );
+                window.open(`${baseUrl}?${params.toString()}`, "_blank");
+              }}
+            >
+              Donate with Venmo
+            </Button>
+          </Row>
 
 
         </div>
