@@ -166,17 +166,22 @@ function Donate() {
             <Button
   className="primary btn-block custom-solid-button"
   onClick={() => {
-    const baseUrl = "https://venmo.com/santasvolunteers"; // your username, no @
+    const baseUrl = "https://venmo.com/santasvolunteers"; 
     const amount = donationValue || 0;
     const note = `Donation via website - Director: ${director || "N/A"}`;
+    
+    // Encode the note properly
+    let encodedNote = encodeURIComponent(note);
+    encodedNote = encodedNote.replace(/\+/g, "%20"); // ensure spaces are %20
 
-    const url = `${baseUrl}?txn=pay&amount=${amount}&note=${encodeURIComponent(note)}`;
+    const url = `${baseUrl}?txn=pay&amount=${amount}&note=${encodedNote}`;
 
     window.open(url, "_blank");
   }}
 >
   Donate with Venmo
 </Button>
+
           </Row>
 
 
