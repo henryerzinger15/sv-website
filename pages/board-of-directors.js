@@ -53,9 +53,9 @@ function CorporateSponsors() {
             <br />
             Tom Erdmier 
               <br />
-              Christian Erzinger Hendry
+              Christian Erzinger
               <br />
-              Erzinger
+              Henry Erzinger
               <br />
               Mark Fellinger 
               <br />
