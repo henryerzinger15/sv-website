@@ -164,23 +164,23 @@ function Donate() {
           {/* Venmo button */}
           <Row style={{ margin: "20px 0 0 0" }}>
             <Button
-  className="primary btn-block custom-solid-button"
-  onClick={() => {
-    const baseUrl = "https://venmo.com/santasvolunteers"; 
-    const amount = donationValue || 0;
-    const note = `Donation via website - Director: ${director || "N/A"}`;
-    
-    // Encode the note properly
-    let encodedNote = encodeURIComponent(note);
-    encodedNote = encodedNote.replace(/\+/g, "%20"); // ensure spaces are %20
+              className="primary btn-block custom-solid-button"
+              onClick={() => {
+                const baseUrl = "https://venmo.com/santasvolunteers";
+                const amount = donationValue || 0;
+                const note = `Donation via website - Director: ${director || "N/A"}`;
 
-    const url = `${baseUrl}?txn=pay&amount=${amount}&note=${encodedNote}`;
+                // Encode the note properly
+                let encodedNote = encodeURIComponent(note);
+                encodedNote = encodedNote.replace(/\+/g, "%20"); // ensure spaces are %20
 
-    window.open(url, "_blank");
-  }}
->
-  Donate with Venmo
-</Button>
+                const url = `${baseUrl}?txn=pay&amount=${amount}&note=${encodedNote}`;
+
+                window.open(url, "_blank");
+              }}
+            >
+              Donate with Venmo
+            </Button>
 
           </Row>
 
@@ -190,5 +190,55 @@ function Donate() {
     </Layout>
   );
 }
+
+// --- Helper functions (defined once, outside the component) ---
+
+// Detect mobile devices
+function isMobile() {
+  return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+}
+
+// Generate Venmo URL for web
+function createVenmoUrl({ username, amount = 0, note = "" }) {
+  const encodedNote = encodeURIComponent(note); // single encoding
+  return `https://venmo.com/${username}?txn=pay&amount=${amount}&note=${encodedNote}`;
+}
+
+// Open Venmo link properly depending on device
+function openVenmo({ username, amount = 0, note = "" }) {
+  const url = createVenmoUrl({ username, amount, note });
+
+  if (isMobile()) {
+    const appUrl = `venmo://paycharge?txn=pay&recipients=${username}&amount=${amount}&note=${encodeURIComponent(note)}`;
+
+    const timeout = setTimeout(() => {
+      window.open(url, "_blank"); // fallback to browser
+    }, 500);
+
+    window.location.href = appUrl;
+    window.addEventListener("pagehide", () => clearTimeout(timeout));
+  } else {
+    window.open(url, "_blank"); // desktop
+  }
+}
+
+// --- Component/Button ---
+function DonateButton({ donationValue, director }) {
+  return (
+    <Button
+      className="primary btn-block custom-solid-button"
+      onClick={() => {
+        openVenmo({
+          username: "santasvolunteers",
+          amount: donationValue || 0,
+          note: `Donation via website - Director: ${director || "N/A"}`
+        });
+      }}
+    >
+      Donate with Venmo
+    </Button>
+  );
+}
+
 
 export default Donate;
