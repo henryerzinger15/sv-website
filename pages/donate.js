@@ -163,7 +163,7 @@ function Donate() {
 
           {/* Venmo button */}
           <Row style={{ margin: "20px 0 0 0" }}>
-            <<Button
+            <Button
   className="primary btn-block custom-solid-button"
   onClick={() => {
     const baseUrl = "https://venmo.com/santasvolunteers"; // your username, no @
