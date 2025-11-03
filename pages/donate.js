@@ -160,14 +160,7 @@ function Donate() {
               </Button>
             </Row>
           </Form>
-                  <Row style={{ margin: 0 }}>
-  <Button
-    variant="primary btn-block custom-solid-button"
-    type="submit"
-  >
-    Donate With PayPal
-  </Button>
-</Row>
+
 
 {/* Venmo button */}
 <Row style={{ margin: "20px 0 0 0" }}>
