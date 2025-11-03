@@ -204,23 +204,26 @@ function createVenmoUrl({ username, amount = 0, note = "" }) {
   return `https://venmo.com/${username}?txn=pay&amount=${amount}&note=${encodedNote}`;
 }
 
+
 // Open Venmo link properly depending on device
 function openVenmo({ username, amount = 0, note = "" }) {
-  const url = createVenmoUrl({ username, amount, note });
+  // Mobile deep link (Venmo app)
+  const appUrl = `venmo://paycharge?txn=pay&recipients=${username}&amount=${amount}&note=${note}`;
 
-  if (isMobile()) {
-    const appUrl = `venmo://paycharge?txn=pay&recipients=${username}&amount=${amount}&note=${encodeURIComponent(note)}`;
-
-    const timeout = setTimeout(() => {
-      window.open(url, "_blank"); // fallback to browser
-    }, 500);
-
+  if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+    // Try to open Venmo app
     window.location.href = appUrl;
-    window.addEventListener("pagehide", () => clearTimeout(timeout));
+
+    // Optional fallback to web if app not installed
+    setTimeout(() => {
+      window.open(`https://venmo.com/${username}?txn=pay&amount=${amount}&note=${note}`, "_blank");
+    }, 500);
   } else {
-    window.open(url, "_blank"); // desktop
+    // Desktop: open web URL
+    window.open(`https://venmo.com/${username}?txn=pay&amount=${amount}&note=${note}`, "_blank");
   }
 }
+
 
 // --- Component/Button ---
 function DonateButton({ donationValue, director }) {
