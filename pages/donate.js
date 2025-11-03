@@ -160,6 +160,33 @@ function Donate() {
               </Button>
             </Row>
           </Form>
+                  <Row style={{ margin: 0 }}>
+  <Button
+    variant="primary btn-block custom-solid-button"
+    type="submit"
+  >
+    Donate With PayPal
+  </Button>
+</Row>
+
+{/* Venmo button */}
+<Row style={{ margin: "20px 0 0 0" }}>
+  <Button
+    variant="outline-primary btn-block custom-outline-button"
+    onClick={() => {
+      const baseUrl = "https://venmo.com/santasvolunteers"; // your username, no @
+      const params = new URLSearchParams({
+        txn: "pay",
+        amount: donationValue || 0,
+        note: `Donation via website - Director: ${director || "N/A"}`
+      });
+      window.open(`${baseUrl}?${params.toString()}`, "_blank");
+    }}
+  >
+    Donate With Venmo
+  </Button>
+</Row>
+
         </div>
       </div>
     </Layout>
