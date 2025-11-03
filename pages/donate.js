@@ -176,16 +176,6 @@ function Donate() {
       window.open(`${baseUrl}?${params.toString()}`, "_blank");
     }}
   >
-    <img
-      src="/venmo.svg"
-      alt="Venmo"
-      style={{
-        height: "20px",
-        width: "20px",
-        marginRight: "8px",
-        verticalAlign: "middle"
-      }}
-    />
     Donate with Venmo
   </Button>
 </Row>
