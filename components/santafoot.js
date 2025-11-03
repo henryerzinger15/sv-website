@@ -24,7 +24,7 @@ function SantaFoot() {
               <img src="/instagram.svg"></img>
             </a>
             <a
-              href="https://account.venmo.com/charity/donate?charity=3899938677196160769"
+              href="https://venmo.com/u/SantasVolunteers"
               target="_blank"
               rel="noopener noreferrer"
             >
