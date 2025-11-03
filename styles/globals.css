@@ -315,4 +315,22 @@ div#home-right img {
   .four-column-directors {
     flex-direction: column;
   }
+
 }
+
+/* --- Venmo Button --- */
+.custom-outline-button.venmo-button {
+  border-color: #3d95ce;
+  color: #3d95ce;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.custom-outline-button.venmo-button:hover {
+  background-color: #3d95ce;
+  color: white;
+  border-color: #3d95ce;
+}
+
