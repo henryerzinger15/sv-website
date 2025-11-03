@@ -23,6 +23,13 @@ function SantaFoot() {
             >
               <img src="/instagram.svg"></img>
             </a>
+            <a
+              href="https://account.venmo.com/charity/donate?charity=3899938677196160769"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="/venmo.svg"></img>
+            </a>
           <div className="footer-links">
             <a href="corporate-donors"><p style={{letterSpacing: "0.25px"}}>CORPORATE DONORS</p></a>
             <a href="board-of-directors"><p style={{letterSpacing: "0.25px"}}>BOARD OF DIRECTORS</p></a>
