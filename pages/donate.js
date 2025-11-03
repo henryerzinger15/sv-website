@@ -165,7 +165,7 @@ function Donate() {
 {/* Venmo button */}
 <Row style={{ margin: "20px 0 0 0" }}>
   <Button
-    variant="outline-primary btn-block custom-outline-button"
+    className="custom-outline-button venmo-button btn-block"
     onClick={() => {
       const baseUrl = "https://venmo.com/santasvolunteers"; // your username, no @
       const params = new URLSearchParams({
@@ -176,9 +176,20 @@ function Donate() {
       window.open(`${baseUrl}?${params.toString()}`, "_blank");
     }}
   >
-    Donate With Venmo
+    <img
+      src="/venmo.svg"
+      alt="Venmo"
+      style={{
+        height: "20px",
+        width: "20px",
+        marginRight: "8px",
+        verticalAlign: "middle"
+      }}
+    />
+    Donate with Venmo
   </Button>
 </Row>
+
 
         </div>
       </div>
