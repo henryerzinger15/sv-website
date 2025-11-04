@@ -35,7 +35,7 @@ function isMobile() {
 
 function openVenmo({ username, amount = 0, note = "" }) {
   // On mobile, omit the note to avoid + space issues
-  const noteParam = isMobile() ? "Henry Test" : `&note=${encodeURIComponent(note)}`;
+  const noteParam = isMobile() ? "" : `&note=${encodeURIComponent(note)}`;
   const url = `https://venmo.com/${username}?txn=pay&amount=${amount}${noteParam}`;
   window.open(url, "_blank");
 }
