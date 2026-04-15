@@ -45,7 +45,7 @@ function HowWeGotStarted() {
           </p>
         </div>
         <div id="home-right">
-          <img style={{ paddingBottom: 40 }} src="/Santas-Helpers-47-2x.png" />
+          <img style={{ paddingBottom: 40 }} src="/Bob_Erz_And_Al_Fellinger.jpg" />
           <p>
             Another result of that conversation is an unusual operating
             principle: Every penny contributed goes toward those Christmas
