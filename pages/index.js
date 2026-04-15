@@ -3,7 +3,7 @@ import Layout from "../components/layout";
 function Home() {
   return (
     <Layout>
-      <img src="/Santas-Helpers-11-2x.png" width="100%" />
+      <img src="/Large_Unloading.jpg" className="hero-image" />
       <div className="content-container" style={{ paddingTop: "0" }}>
         <h1>Bringing Christmas Cheer to Families in Need</h1>
         <div id="home-left">
