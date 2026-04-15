@@ -26,7 +26,7 @@ function Home() {
           </p>
         </div>
         <div id="home-right" className="d-flex flex-nowrap align-items-center">
-          <img src="/homepageBannerImage.jpg" />
+          <img src="/2025_SV_Group_Photo.JPG" />
         </div>
       </div>
     </Layout>
