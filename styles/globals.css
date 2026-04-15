@@ -26,6 +26,13 @@ body {
   color: var(--textColor);
 }
 
+.hero-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
 a {
   color: inherit;
   text-decoration: none;
