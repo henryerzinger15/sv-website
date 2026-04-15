@@ -14,11 +14,11 @@ function HowWeDoIt() {
         </div>
 
         <div id="home-right">
-          <img src="/Santas-Helpers-16-2x.png" />
+          <img src="/Truck_Unloading.JPG" />
         </div>
 
         <div id="home-left">
-          <img src="/Santas-Helpers-56-2x.png" />
+          <img src="/Packing_Bags.JPG" />
         </div>
 
         <div id="home-right">
@@ -40,7 +40,7 @@ function HowWeDoIt() {
         </div>
 
         <div id="home-right">
-          <img src="/Santas-Helpers-88-2x.png" />
+          <img src="/Happy_Smiles.JPG" />
         </div>
 
       </div>
